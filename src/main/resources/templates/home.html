@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>홈</title>
+</head>
+
+<body>
+
+    <h1>🎉 로그인 성공!</h1>
+    <p>환영합니다, 홈 페이지입니다.</p>
+
+    <p>현재 로그인한 사용자: <b th:text="${#authentication.name}">로그인한 아이디</b></p>
+    <p>권한 목록: <b th:text="${#authentication.authorities}">ROLE_USER</b></p>
+
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">로그아웃</button>
+    </form>
+
+</body>
+
+</html>
