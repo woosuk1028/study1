@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
+  <meta charset="UTF-8">
   <title>회원가입</title>
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
 
-  <div class="register-container">
-    <form class="register-form" th:action="@{/register}" th:object="${userDto}" method="post">
-      <h2>회원가입</h2>
+<div class="register-container container-box">
+  <form class="register-form" th:action="@{/register}" th:object="${userDto}" method="post">
+    <h2>회원가입</h2>
 
-      <!-- 에러 메시지 출력 -->
-      <div class="error-message" th:if="${errorMessage}">
-        <p th:text="${errorMessage}"></p>
-      </div>
+    <!-- 에러 메시지 출력 -->
+    <div class="error-message" th:if="${errorMessage}">
+      <p th:text="${errorMessage}"></p>
+    </div>
 
-      <input type="text" th:field="*{username}" placeholder="아이디" required>
-      <input type="password" th:field="*{password}" placeholder="비밀번호" required>
-      <input type="text" th:field="*{nickname}" placeholder="닉네임" required>
-      <button type="submit">가입하기</button>
+    <input type="text" th:field="*{username}" placeholder="아이디" required>
+    <input type="password" th:field="*{password}" placeholder="비밀번호" required>
+    <input type="text" th:field="*{nickname}" placeholder="닉네임" required>
 
-      <div class="bottom-link">
-        <a th:href="@{/login}">이미 계정이 있나요? 로그인하기</a>
-      </div>
-    </form>
-  </div>
+    <button type="submit" class="primary-btn">가입하기</button>
+
+    <div class="bottom-link">
+      <a th:href="@{/login}">이미 계정이 있나요? 로그인하기</a>
+    </div>
+  </form>
+</div>
 
 </body>
 </html>

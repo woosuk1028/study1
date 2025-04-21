@@ -1,133 +1,148 @@
-/* 전체 배경 설정 */
+/* --- 기본 설정 --- */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Pretendard', sans-serif;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* 로그인 박스 */
-.login-container {
+/* --- 공통 카드 컨테이너 --- */
+.container-box {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     background: white;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
 
-.login-form h2 {
+/* --- 공통 타이틀 --- */
+h1, h2 {
     text-align: center;
     margin-bottom: 24px;
     color: #333;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.login-form button {
-    width: 100%;
-    padding: 12px;
+/* --- 버튼 공통 --- */
+.primary-btn {
+    padding: 10px 16px;
     background-color: #667eea;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s ease-in-out;
-}
-
-.login-form button:hover {
-    background-color: #5a67d8;
-}
-
-.register-container {
-    width: 100%;
-    max-width: 400px;
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-}
-
-.register-form h2 {
-    text-align: center;
-    margin-bottom: 24px;
-    color: #333;
-}
-
-.register-form input[type="text"],
-.register-form input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
-    font-size: 16px;
-}
-
-.register-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #667eea;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
-}
-
-.register-form button:hover {
-    background-color: #5a67d8;
-}
-
-.register-button {
+    text-decoration: none;
     display: inline-block;
-    width: 100%;
-    padding: 12px 0 12px 0;
+    text-align: center;
+}
+
+.primary-btn:hover {
+    background-color: #5a67d8;
+}
+
+.gray-btn {
     background-color: #e2e8f0;
     color: #333;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 12px;
 }
 
-.register-button:hover {
+.gray-btn:hover {
     background-color: #cbd5e1;
 }
 
-.bottom-link {
-    margin-top: 16px;
-    text-align: center;
-    font-size: 14px;
+/* --- 버튼 묶음 --- */
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
 }
 
-.bottom-link a {
-    color: #667eea;
+/* --- form 요소 --- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: block;
+    color: #444;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 200px;
+    resize: vertical;
+}
+
+/* --- 게시글 목록 --- */
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.post-list li:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.post-list a {
+    color: #333;
+    font-size: 16px;
     text-decoration: none;
 }
 
-.bottom-link a:hover {
+.post-list a:hover {
     text-decoration: underline;
 }
 
+/* --- 게시글 상세 --- */
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+}
+
+.post-content {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-bottom: 40px;
+}
+
+/* --- 메시지 --- */
 .error-message {
     color: red;
     font-size: 14px;
