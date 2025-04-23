@@ -20,6 +20,8 @@ public class Post {
     private String content;
     private String writer;
 
+    private boolean reserved = false;
+
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
 

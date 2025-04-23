@@ -2,6 +2,7 @@ package com.example.study1.controller;
 
 import com.example.study1.dto.PostDto;
 import com.example.study1.service.PostService;
+import com.example.study1.service.ReservationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class PostController {
 
     private final PostService postService;
+    private final ReservationService reservationService;
 
     @GetMapping("/posts")
     public String list(Model model) {
@@ -46,6 +48,12 @@ public class PostController {
     public String delete(@PathVariable Long id) {
         postService.deletePost(id);
         return "redirect:/posts";
+    }
+
+    @GetMapping("/posts/reserve/{id}")
+    public String reserve(@PathVariable Long id, Model model) {
+        model.addAttribute("post", postService.getPost(id));
+        return "posts/reserve";
     }
 
 }
