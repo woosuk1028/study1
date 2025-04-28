@@ -11,6 +11,6 @@ import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
-    @Query("SELECT p FROM Post P WHERE p.id = :id")
+    @Query("SELECT P FROM Post  P WHERE P.id = :id")
     Optional<Post> findByIdForUpdate(@Param("id") Long id);
 }

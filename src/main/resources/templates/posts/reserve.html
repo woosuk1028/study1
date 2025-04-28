@@ -18,4 +18,11 @@
     </div>
 </div>
 </body>
+
+<script th:inline="javascript">
+    window.addEventListener("beforeunload", function () {
+        fetch('/posts/reserve/unlock/' + [[${post.id}]], { method: 'POST' });
+    });
+</script>
+
 </html>
