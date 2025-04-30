@@ -3,6 +3,9 @@ package com.example.study1.service;
 import com.example.study1.dto.PostDto;
 import com.example.study1.entity.Post;
 import com.example.study1.repository.PostRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
@@ -26,6 +29,11 @@ public class PostService {
         post.setUpdateDate(LocalDateTime.now());
 
         postRepository.save(post);
+    }
+
+    public Page<Post> getPagedPostList(int page) {
+        Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "createDate"));
+        return postRepository.findAll(pageable);
     }
 
     public List<Post> getPostList() {

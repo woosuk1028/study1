@@ -7,13 +7,11 @@ import com.example.study1.service.ReservationService;
 import com.example.study1.util.ReservationLockManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -24,8 +22,10 @@ public class PostController {
     private final ReservationLockManager reservationLockManager;
 
     @GetMapping("/posts")
-    public String list(Model model) {
-        model.addAttribute("posts", postService.getPostList());
+    public String list(@RequestParam(defaultValue = "0") int page, Model model) {
+        Page<Post> postPage = postService.getPagedPostList(page);
+        model.addAttribute("postPage", postPage);
+//        model.addAttribute("posts", postService.getPostList());
         return "posts/list";
     }
 
